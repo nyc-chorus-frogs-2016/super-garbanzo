@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   has_many :favorited_poems
   has_many :favorited_authors
 
-  has_one :author #maybe
+  has_one :identity_as_author, class_name: "Author" #a user may also be an author
 end

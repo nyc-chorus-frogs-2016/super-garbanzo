@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PoetryGarden</title>
+  <title>KB's Poetry Garden</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <nav id="navbar">
+    <ul id="navlinks">
+      <li id="main_title">
+        <a href="/">KB News</a>
+        </li>
+        <li>
+          <a href="/posts/new">submit</a> |
+        </li>
+        <%if logged_in? %>
+          <li>
+            <a href="users/<%=current_user.id%>"><%=current_user.username%></a> |
+          </li>
+          <li class="right">
+            <a href="/users/new">logout</a>
+          </li>
+        <%else%>
+          <li class="right">
+            <a href="/users/new">login or register</a>
+          </li>
+        <%end%>
+    </ul>
+  </nav>
+
+
+
+
 
 <%= yield %>
 
