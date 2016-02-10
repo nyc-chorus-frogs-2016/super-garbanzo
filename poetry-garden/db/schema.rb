@@ -25,21 +25,27 @@ ActiveRecord::Schema.define(version: 20160210162653) do
   add_index "authors", ["name"], name: "index_authors_on_name"
 
   create_table "favorited_authors", force: :cascade do |t|
-    t.integer "author_id"
-    t.integer "user_id"
+    t.integer  "author_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorited_poems", force: :cascade do |t|
-    t.integer "poem_id"
-    t.integer "user_id"
+    t.integer  "poem_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "poems", force: :cascade do |t|
-    t.string  "author_id",    null: false
-    t.text    "lines",        null: false
-    t.integer "year"
-    t.string  "title"
-    t.integer "submitter_id"
+    t.string   "author_id",    null: false
+    t.text     "lines",        null: false
+    t.integer  "year"
+    t.string   "title"
+    t.integer  "submitter_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "poems", ["title"], name: "index_poems_on_title"
@@ -47,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160210162653) do
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
     t.string   "password_digest", null: false
+    t.string   "name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

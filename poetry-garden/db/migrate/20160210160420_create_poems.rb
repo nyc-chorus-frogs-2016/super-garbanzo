@@ -6,6 +6,8 @@ class CreatePoems < ActiveRecord::Migration
       t.integer :year
       t.string :title
       t.integer :submitter_id
+
+      t.timestamps null: false
     end
   end
 end
