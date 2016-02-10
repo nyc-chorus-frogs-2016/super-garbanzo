@@ -1,0 +1,2 @@
+class FavoritedAuthorsController < ApplicationController
+end

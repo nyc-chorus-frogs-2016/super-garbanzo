@@ -1,0 +1,2 @@
+class FavoritedPoemsController < ApplicationController
+end
