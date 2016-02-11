@@ -15,14 +15,15 @@ ActiveRecord::Schema.define(version: 20160210162653) do
 
   create_table "authors", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "name",          null: false
+    t.string   "first_name",    null: false
+    t.string   "last_name",     null: false
     t.integer  "year_of_birth"
     t.text     "bio"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  add_index "authors", ["name"], name: "index_authors_on_name"
+  add_index "authors", ["last_name"], name: "index_authors_on_last_name"
 
   create_table "favorited_authors", force: :cascade do |t|
     t.integer  "author_id"
