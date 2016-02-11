@@ -3,12 +3,24 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :update, :edit, :show]
   resource :session, only: [:new, :create, :destroy]
 
-  resources :authors do
-    resources :poems, only: [:create, :edit, :update, :destroy]
+  resources :authors, only: [:new, :create, :update, :edit, :show, :index] do
+    resources :poems, only: [:create, :edit, :update, :destroy, :show]
   end
 
   resources :favorited_poems, only: [:create, :destroy]
   resources :favorited_authors, only: [:create, :destroy]
+
+  root 'authors#index'
+
+  get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#delete'
+
+  get '/register' => 'users#new'
+
+end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -63,4 +75,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

@@ -2,10 +2,10 @@ kb_as_user = User.create({username: "KB", password: "12345", name: "KB DiAngelo"
 User.create({username: "jenna", password: "12345", name: "Jenna Espezua"})
 User.create({username: "dandersen2", password: "12345", name: "Dan Andersen"})
 
-kb = Author.create({user_id: 1, name: "KB DiAngelo", year_of_birth: 1989, bio: "Not really a poet"})
-shakespeare = Author.create({name: "William Shakespeare", year_of_birth: 1564, bio: "Prolly the best poet of all time"})
+kb = Author.create({user_id: 1, first_name: "KB", last_name: "DiAngelo", year_of_birth: 1989, bio: "Not really a poet"})
+shakespeare = Author.create({first_name: "William", last_name: "Shakespeare", year_of_birth: 1564, bio: "Prolly the best poet of all time"})
 
-Poem.create({author: shakespeare, submitter: kb_as_user,
+Poem.create({author: shakespeare, submitter: kb_as_user, title: "Sonnet 65",
   lines: "Since brass, nor stone, nor earth, nor boundless sea
           But sad mortality o’er-sways their power,
           How with this rage shall beauty hold a plea,

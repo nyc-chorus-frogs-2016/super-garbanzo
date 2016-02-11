@@ -4,7 +4,7 @@ class Author < ActiveRecord::Base
   has_many :favorited_authors
   has_many :users_whove_favorited, through: :favorited_authors, class_name: "User"
 
-  validates :name, presence: true
+  validates :first_name, :last_name, presence: true
 
   def self.by_popularity
     #sort instances of the Author class by number of favorited_authors users it has
@@ -22,4 +22,11 @@ class Author < ActiveRecord::Base
     self.favorited_authors.count
   end
 
+  def number_poems
+    self.poems.count
+  end
+
+  def to_param
+    "#{self.id}-#{self.first_name.parameterize}-#{self.last_name.parameterize}"
+  end
 end
